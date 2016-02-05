@@ -1,0 +1,57 @@
+/* Place project-specific CSS here */
+
+@font-face {
+	font-family: myFirstFont;
+	src: url(sansation_light.woff);
+}
+
+@import url(http://fonts.googleapis.com/css?family=GFS+Didot&subset=greek);
+
+body{
+font-size:1em;
+/*font-family:  "Palatino Linotype";*/
+font-family: 'GFS Didot', serif;
+line-height: 1.5em;
+margin-bottom: 1.5em;
+}
+
+
+#horizontal-nav{
+	background: #ab9e71 ;
+	color:#fff;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 960px;
+	float: none;
+}
+
+
+#content{
+	margin-left: auto;
+	margin-right: auto;
+	width: 960px;
+	position: relative;
+	float: none;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+  color:#ab9e71;
+}
+
+h1{
+  font-variant : small-caps;
+	font-weight:bold;
+}
+
+.wit_1582{
+	display: none;
+}
+
+.wit_1588{
+	display: none;
+}
+.wit_1595{
+	
+}
