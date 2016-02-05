@@ -26,7 +26,7 @@
 	
 <xsl:template match="rdg">
   <span>
-    <xsl:attribute name="class">wit_<xsl:value-of select="@wit"/>
+    <xsl:attribute name="class">wit_<xsl:value-of select="substring(@wit,2)"/>
     </xsl:attribute>  
     <xsl:apply-templates />
  </span>
