@@ -45,6 +45,10 @@ h1{
 	font-weight:bold;
 }
 
+h3{
+	font-style: italic;
+}
+
 .wit_1582{
 	display: none;
 }
