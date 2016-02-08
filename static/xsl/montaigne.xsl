@@ -38,6 +38,12 @@
  </h3>
 </xsl:template>
 
+<xsl:template match="title">
+  <span class="title">
+    <xsl:apply-templates />
+ </span>
+</xsl:template>
+
 <xsl:template match="list">
   <ul>
     <xsl:apply-templates />
