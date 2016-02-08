@@ -36,6 +36,8 @@ import module namespace montaigne.models.tei = 'montaigne.models.tei' at '../mod
 (: Put here all import declarations for mapping according to models :)
 import module namespace synopsx.mappings.htmlWrapping = 'synopsx.mappings.htmlWrapping' at '../../../mappings/htmlWrapping.xqm' ;
 
+declare namespace tei = 'http://www.tei-c.org/ns/1.0' ;
+
 (: Use a default namespace :)
 declare default function namespace 'montaigne.webapp' ;
 
@@ -107,7 +109,7 @@ function editors() {
     }
   let $outputParams := map {
     'lang' : 'fr',
-    'layout' : 'editors.xhtml',
+    'layout' : 'home.xhtml',
     'pattern' : 'inc_editorItem.xhtml'   
     }
  return synopsx.models.synopsx:htmlDisplay($queryParams, $outputParams)
@@ -133,7 +135,7 @@ function essais() {
     }
    let $outputParams := map {
     'lang' : 'fr',
-    'layout' : 'essais.xhtml',
+    'layout' : 'home.xhtml',
     'pattern' : 'inc_textTitleItem.xhtml'
     }
  return synopsx.models.synopsx:htmlDisplay($queryParams, $outputParams)
@@ -160,10 +162,40 @@ function essai($id) {
     }
    let $outputParams := map {
     'lang' : 'fr',
-    'layout' : 'essai.xhtml',
+    'layout' : 'home.xhtml',
     'pattern' : 'inc_defaultItem.xhtml' ,
     'xsl' : 'montaigne.xsl'
 
     }
  return synopsx.models.synopsx:htmlDisplay($queryParams, $outputParams)
+};
+
+
+
+(:~
+ : this resource function is the html representation of the corpus resource
+ :
+ : @return an html representation of the corpus resource with a bibliographical list
+ : the HTML serialization also shows a bibliographical list
+ :)
+declare 
+  %restxq:path('/montaigne/exemple')
+  %rest:produces('text/html')
+  %output:method("html")
+  %output:html-version("5.0")
+function exemple() {  
+  let $editeurs := db:open('montaigne')/tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:respStmt[tei:resp="Editeur"]/tei:persName
+  return
+    <html>
+      <head>
+      </head>
+      <body>
+        <ul>
+        {
+        for $editeur in $editeurs
+        return <li>{$editeur/tei:surname/text()}</li>
+        }
+        </ul>
+      </body>
+    </html>
 };

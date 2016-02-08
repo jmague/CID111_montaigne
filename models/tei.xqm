@@ -47,7 +47,6 @@ declare default function namespace 'montaigne.models.tei' ;
 declare function getDivById($queryParams as map(*)) as map(*) {
  
   let $meta := map{
-    'title' : $queryParams('id')
     }
   let $content := map{
     'tei' :  synopsx.models.synopsx:getDb($queryParams)//tei:TEI[@xml:id='montaigne']//tei:div[@xml:id=$queryParams('id')]    

@@ -32,4 +32,30 @@
  </span>
 </xsl:template>
 
+<xsl:template match="head">
+  <h3>
+    <xsl:apply-templates />
+ </h3>
+</xsl:template>
+
+<xsl:template match="list">
+  <ul>
+    <xsl:apply-templates />
+ </ul>
+</xsl:template>
+
+<xsl:template match="item">
+  <li>
+    <xsl:apply-templates />
+ </li>
+</xsl:template>
+
+<xsl:template match="ref">
+  <a>
+    <xsl:attribute name="href"><xsl:value-of select="@target"/>
+    </xsl:attribute>  
+    <xsl:apply-templates />
+ </a>
+</xsl:template>
+
 </xsl:stylesheet>
