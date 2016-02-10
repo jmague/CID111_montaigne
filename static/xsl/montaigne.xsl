@@ -64,4 +64,10 @@
  </a>
 </xsl:template>
 
+<xsl:template match="quote">
+  <p class="citation">
+    <xsl:apply-templates />
+ </a>
+</xsl:template>
+
 </xsl:stylesheet>
