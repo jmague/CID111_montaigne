@@ -67,7 +67,7 @@
 <xsl:template match="quote">
   <p class="citation">
     <xsl:apply-templates />
- </a>
+ </p>
 </xsl:template>
 
 </xsl:stylesheet>
