@@ -1,0 +1,67 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+   <head>
+      <meta charset="utf-8" />
+      <title>{title}</title>
+      <meta name="description" content="{description}" />
+      <meta name="author" content="{author}" />
+      <meta name="keywords" content="{subject}" />
+      <link rel="copyright" href="{copyright}"/>
+     
+     <!-- Bootstrap core CSS -->
+     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" />
+     <link href="/synopsx/files/css/ahn.css" rel="stylesheet" />
+     
+     <!-- JS -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+     <script src="/synopsx/files/js/synopsx.js"></script>
+     <script src="/synopsx/files/montaigne/js/montaigne.js"></script>
+    <!-- CSS spécifiques au corpus -->
+    <link href="/synopsx/files/montaigne/css/montaigne.css" rel="stylesheet" />
+  </head>
+ <body>
+    <nav data-url="inc_ahn-navbar"></nav>
+     <header data-url="inc_header"></header>
+  
+    <div class="container">
+      <div class="row row-offcanvas">
+        <div class="col-xs-12 col-sm-12">
+         
+          <div data-url="inc_primary-nav"></div>
+          <div id="content" class="col-8 col-sm-8 col-lg-8 row row-offcanvas">
+          <div id="secondary" class="aside">
+       
+        <!--   <nav data-load="/montaigne/inc/notiones"></nav> -->
+          <!-- Test load url relative (ok) -->
+      <!--      <nav data-load="test/url/relative"></nav> -->
+         
+           </div>
+            <div id="primary" class="home">
+              
+<form name="selectEdition">
+  Edition à afficher:<br/>
+  <input type="radio" name="edition" value="e1582"/> <span id='e1582selector' >1582</span><br/>
+  <input type="radio" name="edition" value="e1588"/> <span id='e1588selector' >1588</span><br/>
+  <input type="radio" name="edition" value="e1598" checked="checked"/> <span id='e1598selector' >1598</span><br/>
+  <input type="radio" name="edition" value="all"/> Toutes<br/>
+  Montrer les couleurs <input type="checkbox" name="useColor"/>
+</form>
+              <section id="accueil">  
+                <h3>{title}</h3>
+                  <section>{content}</section>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.container -->
+    </div>
+    <footer data-url="inc_footer"></footer>
+
+       <script>$( document ).ready(function() {
+              init();
+              initMontaigne();
+          });
+    </script>
+  </body>
+</html>

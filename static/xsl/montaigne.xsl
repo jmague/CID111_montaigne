@@ -70,4 +70,11 @@
  </p>
 </xsl:template>
 
+<xsl:template match="q">
+  <span class="citation">
+    <xsl:apply-templates />
+ </span>
+</xsl:template>
+
+
 </xsl:stylesheet>

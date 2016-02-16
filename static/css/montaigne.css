@@ -60,6 +60,11 @@ h1{
 .wit_e1595{	
 }
 
-.citation{
+p.citation{
 	font-style: italic;
+	text-align: center;
+}
+
+span.citation{
+	font-style: italic;	
 }

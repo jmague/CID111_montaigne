@@ -162,7 +162,7 @@ function essai($id) {
     }
    let $outputParams := map {
     'lang' : 'fr',
-    'layout' : 'home.xhtml',
+    'layout' : 'essai.xhtml',
     'pattern' : 'inc_defaultItem.xhtml' ,
     'xsl' : 'montaigne.xsl'
 
