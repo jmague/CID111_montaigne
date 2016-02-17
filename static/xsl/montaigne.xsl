@@ -74,7 +74,9 @@
   <span class="citation">
     <xsl:apply-templates />
  </span>
+ 
+</xsl:template><xsl:template match="lb">
+  <br/>
 </xsl:template>
-
 
 </xsl:stylesheet>
