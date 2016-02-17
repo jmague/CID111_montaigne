@@ -136,7 +136,32 @@ function essais() {
    let $outputParams := map {
     'lang' : 'fr',
     'layout' : 'home.xhtml',
-    'pattern' : 'inc_textTitleItem.xhtml'
+    'pattern' : 'inc_essaiTitleItem.xhtml'
+    }
+ return synopsx.models.synopsx:htmlDisplay($queryParams, $outputParams)
+};
+
+(:~
+ : this resource function is the html representation of the corpus resource
+ :
+ : @return an html representation of the corpus resource with a bibliographical list
+ : the HTML serialization also shows a bibliographical list
+ :)
+declare 
+  %restxq:path('/montaigne/rapports')
+  %rest:produces('text/html')
+  %output:method("html")
+  %output:html-version("5.0")
+function rapports() {  
+    let $queryParams := map {
+    'project' : $montaigne.webapp:project,
+    'model' : 'tei' ,
+    'function' : 'getReportsList'
+    }
+   let $outputParams := map {
+    'lang' : 'fr',
+    'layout' : 'home.xhtml',
+    'pattern' : 'inc_reportTitleItem.xhtml'
     }
  return synopsx.models.synopsx:htmlDisplay($queryParams, $outputParams)
 };
@@ -170,6 +195,33 @@ function essai($id) {
  return synopsx.models.synopsx:htmlDisplay($queryParams, $outputParams)
 };
 
+(:~
+ : this resource function is the html representation of the corpus resource
+ :
+ : @return an html representation of the corpus resource with a bibliographical list
+ : the HTML serialization also shows a bibliographical list
+ :)
+declare 
+  %restxq:path('/montaigne/rapport/{$id}')
+  %rest:produces('text/html')
+  %output:method("html")
+  %output:html-version("5.0")
+function rapport($id) {  
+    let $queryParams := map {
+    'project' : $montaigne.webapp:project,
+    'model' : 'tei' ,
+    'function' : 'getTextById',
+    'id' : $id
+    }
+   let $outputParams := map {
+    'lang' : 'fr',
+    'layout' : 'home.xhtml',
+    'pattern' : 'inc_defaultItem.xhtml' ,
+    'xsl' : 'montaigne.xsl'
+
+    }
+ return synopsx.models.synopsx:htmlDisplay($queryParams, $outputParams)
+};
 
 
 (:~
