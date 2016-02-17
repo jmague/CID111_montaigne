@@ -25,11 +25,20 @@
 
 	
 <xsl:template match="rdg">
+	<xsl:if test=".//quote">
+		<div>
+	    <xsl:attribute name="class">wit_<xsl:value-of select="substring(@wit,2)"/>
+	    </xsl:attribute>  
+	    <xsl:apply-templates />
+	 </div>
+	</xsl:if>
+<xsl:if test="not(.//quote)">
   <span>
     <xsl:attribute name="class">wit_<xsl:value-of select="substring(@wit,2)"/>
     </xsl:attribute>  
     <xsl:apply-templates />
  </span>
+ </xsl:if>
 </xsl:template>
 
 <xsl:template match="head">
