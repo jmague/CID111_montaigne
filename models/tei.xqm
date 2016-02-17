@@ -117,11 +117,11 @@ declare function getEditorsList($queryParams as map(*)) as map(*) {
  :
  : @rmq for testing with new htmlWrapping
  :)
-declare function getTextsList($queryParams as map(*)) as map(*) {
+declare function getEssaisList($queryParams as map(*)) as map(*) {
   let $meta := map{
     'title' : 'Les Essais'
     }
-  let $content := for $essai in synopsx.models.synopsx:getDb($queryParams)/tei:TEI[fn:not(@xml:id = "montaigne")]  
+  let $content := for $essai in synopsx.models.synopsx:getDb($queryParams)/tei:TEI[fn:not(//tei:titleStmt/tei:author)]  
    order by $essai//tei:titleStmt/tei:author , $essai//tei:titleStmt/tei:title     
      return 
      map {

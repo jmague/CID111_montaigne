@@ -131,7 +131,7 @@ function essais() {
     let $queryParams := map {
     'project' : $montaigne.webapp:project,
     'model' : 'tei' ,
-    'function' : 'getTextsList'
+    'function' : 'getEssaisList'
     }
    let $outputParams := map {
     'lang' : 'fr',
