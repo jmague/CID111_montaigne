@@ -79,7 +79,7 @@
  <xsl:template match="bibl"/>
   
  
-</xsl:template><xsl:template match="lb">
+<xsl:template match="lb">
   <br/>
 </xsl:template>
 
