@@ -54,6 +54,26 @@ h1{
 	display: none;
 }
 
+.wit_e1582:before{
+	content: attr(data-before)
+}
+.wit_e1582:after{
+	content: attr(data-after)
+}
+
+.wit_e1588:before{
+	content: attr(data-before)
+}
+.wit_e1588:after{
+	content: attr(data-after)
+}
+.wit_e1598:before{
+	content: attr(data-before)
+}
+.wit_e1598:after{
+	content: attr(data-after)
+}
+
 .wit_e1588{
 	display: none;
 }

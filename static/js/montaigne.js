@@ -16,12 +16,27 @@ function show(edition){
   }
 }
 
+function addBrackets(edition){
+  var variantes = document.getElementsByClassName('wit_'+edition);
+  for (var i = 0; i < variantes.length; i ++) {
+      variantes[i].setAttribute('data-before','[');
+      variantes[i].setAttribute('data-after',']');
+  }
+}
+function removeBrackets(edition){
+  var variantes = document.getElementsByClassName('wit_'+edition);
+  for (var i = 0; i < variantes.length; i ++) {
+      variantes[i].setAttribute('data-before','');
+      variantes[i].setAttribute('data-after','');
+  }
+}
+
+
 function setColors(edition, color){
   var variantes = document.getElementsByClassName('wit_'+edition);
   for (var i = 0; i < variantes.length; i ++) {
       variantes[i].style.background = color;
   }
-
 }
 
 function initMontaigne(){
@@ -29,19 +44,25 @@ function initMontaigne(){
   useColor.onclick = function(){
     if(this.checked){
       setColors('e1582', editionColors['e1582']);
+      addBrackets('e1582');
       document.getElementById('e1582selector').style.background = editionColors['e1582'];
       setColors('e1588', editionColors['e1588']);
+      addBrackets('e1588');
       document.getElementById('e1588selector').style.background = editionColors['e1588'];
       setColors('e1598', editionColors['e1598']);
+      addBrackets('e1598');
       document.getElementById('e1598selector').style.background = editionColors['e1598'];
       
     }
     else{
       setColors('e1582', '#ffffff');
+      removeBrackets('e1582');
       document.getElementById('e1582selector').style.background = '#ffffff';
       setColors('e1588', '#ffffff');
+      removeBrackets('e1588');
       document.getElementById('e1588selector').style.background = '#ffffff';
       setColors('e1598', '#ffffff');
+      removeBrackets('e1598');
       document.getElementById('e1598selector').style.background = '#ffffff';
     }
   }
