@@ -18,9 +18,9 @@
 	</xsl:template>
 
   <xsl:template match="p">
-    <p>
+    <div>
 		    <xsl:apply-templates/>
-    </p>
+    </div>
 	</xsl:template>
 
 	
@@ -74,9 +74,9 @@
 </xsl:template>
 
 <xsl:template match="quote">
-  <p class="citation">
+  <div class="citation">
     <xsl:apply-templates />
- </p>
+ </div>
 </xsl:template>
 
 <xsl:template match="q">

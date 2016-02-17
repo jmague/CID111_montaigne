@@ -80,7 +80,8 @@ h1{
 .wit_e1595{	
 }
 
-p.citation{
+div.citation{
+	background-color: inherit;
 	font-style: italic;
 	text-align: center;
 }

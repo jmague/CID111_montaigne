@@ -12,7 +12,12 @@ function hide(edition){
 function show(edition){
   var variantes = document.getElementsByClassName('wit_'+edition);
   for (var i = 0; i < variantes.length; i ++) {
-      variantes[i].style.display = 'inline';
+      if (variantes[i].nodeName=='SPAN'){
+        variantes[i].style.display = 'inline';
+      }
+      else{
+        variantes[i].style.display = 'block';
+      }
   }
 }
 
