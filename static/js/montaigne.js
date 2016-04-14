@@ -57,7 +57,7 @@ function eventFire(el, etype){
 }
 
 function addColors(){
-  if(this.checked){
+  if(document.selectEdition.useColor.checked){
     setColors('e1582', editionColors['e1582']);
     addBrackets('e1582');
     document.getElementById('e1582selector').style.background = editionColors['e1582'];
