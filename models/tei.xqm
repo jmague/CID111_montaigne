@@ -143,7 +143,7 @@ declare function getEssaisList($queryParams as map(*)) as map(*) {
  :)
 declare function getReportsList($queryParams as map(*)) as map(*) {
   let $meta := map{
-    'title' : 'Les Essais'
+    'title' : 'Rapports des étudiants'
     }
   let $content := for $essai in synopsx.models.synopsx:getDb($queryParams)/tei:TEI[//tei:titleStmt/tei:author]  
    order by $essai//tei:titleStmt/tei:author
