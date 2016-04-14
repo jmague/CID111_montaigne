@@ -24,8 +24,10 @@ function show(edition){
 function addBrackets(edition){
   var variantes = document.getElementsByClassName('wit_'+edition);
   for (var i = 0; i < variantes.length; i ++) {
-      variantes[i].setAttribute('data-before','[');
-      variantes[i].setAttribute('data-after',']');
+    if variantes[i].tagName=='span'{
+        variantes[i].setAttribute('data-before','[');
+        variantes[i].setAttribute('data-after',']');
+      }
   }
 }
 function removeBrackets(edition){
