@@ -46,6 +46,16 @@ function setColors(edition, color){
   }
 }
 
+function eventFire(el, etype){
+  if (el.fireEvent) {
+    el.fireEvent('on' + etype);
+  } else {
+    var evObj = document.createEvent('Events');
+    evObj.initEvent(etype, true, false);
+    el.dispatchEvent(evObj);
+  }
+}
+
 function initMontaigne(){
   var useColor  = document.selectEdition.useColor;
   useColor.onclick = function(){
@@ -74,15 +84,7 @@ function initMontaigne(){
     }
   }
   
-  function eventFire(el, etype){
-  if (el.fireEvent) {
-    el.fireEvent('on' + etype);
-  } else {
-    var evObj = document.createEvent('Events');
-    evObj.initEvent(etype, true, false);
-    el.dispatchEvent(evObj);
-  }
-}
+
   
   var rad = document.selectEdition.edition;
   for(var i = 0; i < rad.length; i++) {
