@@ -74,6 +74,16 @@ function initMontaigne(){
     }
   }
   
+  function eventFire(el, etype){
+  if (el.fireEvent) {
+    el.fireEvent('on' + etype);
+  } else {
+    var evObj = document.createEvent('Events');
+    evObj.initEvent(etype, true, false);
+    el.dispatchEvent(evObj);
+  }
+}
+  
   var rad = document.selectEdition.edition;
   for(var i = 0; i < rad.length; i++) {
       rad[i].onclick = function() {
@@ -97,6 +107,7 @@ function initMontaigne(){
             show('e1582');
             show('e1588');
             show('e1598');
+            eventFire(document.selectEdition.useColor, 'click');
             break;
           default:
             break;
