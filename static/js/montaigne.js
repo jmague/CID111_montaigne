@@ -112,8 +112,8 @@ function initMontaigne(){
             show('e1582');
             show('e1588');
             show('e1598');
-            addColors()
             document.selectEdition.useColor.checked = true;
+            addColors()
 
             break;
           default:
