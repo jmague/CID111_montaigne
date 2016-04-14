@@ -151,6 +151,7 @@ declare function getReportsList($queryParams as map(*)) as map(*) {
      map {
           'id': fn:data($essai/@xml:id),
           'title':$essai//tei:titleStmt/tei:title/text()
+          'author': $essai//tei:titleStmt/tei:author/text()
          }
   return  map{
     'meta'    : $meta,
