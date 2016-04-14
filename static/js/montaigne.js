@@ -56,7 +56,7 @@ function eventFire(el, etype){
   }
 }
 
-function() addColors{
+function addColors(){
   if(this.checked){
     setColors('e1582', editionColors['e1582']);
     addBrackets('e1582');
