@@ -89,3 +89,7 @@ div.citation{
 span.citation{
 	font-style: italic;	
 }
+
+.textTitle {
+	font-weight: bold;
+}

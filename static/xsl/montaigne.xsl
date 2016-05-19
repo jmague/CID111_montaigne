@@ -42,13 +42,19 @@
 </xsl:template>
 
 <xsl:template match="head">
-  <h3>
+  <h4>
     <xsl:apply-templates />
- </h3>
+ </h4>
 </xsl:template>
 
 <xsl:template match="title">
   <span class="title">
+    <xsl:apply-templates />
+ </span>
+</xsl:template>
+
+<xsl:template match="author">
+  <span class="author">
     <xsl:apply-templates />
  </span>
 </xsl:template>
