@@ -74,6 +74,7 @@ declare function getDivById($queryParams as map(*)) as map(*) {
    let $text := synopsx.models.synopsx:getDb($queryParams)//tei:TEI[@xml:id=$queryParams('id')]
    let $meta := map{
      'title' : $text/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title/text()
+     'author': $text/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:author/text()
      }
    let $content :=  map{
      'tei' : $text/tei:text
