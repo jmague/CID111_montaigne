@@ -98,7 +98,7 @@
  </span>
  </xsl:template>
  
- <xsl:template match="bibl"/>
+ <!-- <xsl:template match="bibl"/> -->
   
  
 <xsl:template match="lb">
