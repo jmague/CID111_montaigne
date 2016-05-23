@@ -50,9 +50,19 @@ h1{
 	font-style: italic;
 }
 
-.bibl .author{
+.p .bibl .author{
 	text-shadow: 1px 1px 1px #888;
 }
+
+#citation .bibl:before {
+	content:"("	
+}
+
+#citation .bibl:after {
+	content:")"	
+}
+
+
 .wit_e1582{
 	display: none;
 }
