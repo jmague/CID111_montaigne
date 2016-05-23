@@ -47,6 +47,13 @@
  </h4>
 </xsl:template>
 
+
+<xsl:template match="bibl">
+  <span class="bibl">
+    <xsl:apply-templates />
+ </span>
+</xsl:template>
+
 <xsl:template match="title">
   <span class="title">
     <xsl:apply-templates />
