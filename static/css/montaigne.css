@@ -54,7 +54,7 @@ div .bibl .author{
 	text-shadow: 1px 1px 1px #888;
 }
 
-/*.citation .bibl {
+.citation .bibl {
 	font-style: italic;
 }
 
@@ -64,7 +64,7 @@ div .bibl .author{
 
 .citation .bibl::after {
 	content:")"	
-}*/
+}
 
 
 .wit_e1582{
