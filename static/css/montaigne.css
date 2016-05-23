@@ -54,11 +54,11 @@ h1{
 	text-shadow: 1px 1px 1px #888;
 }
 
-#citation .bibl::before {
+.citation .bibl::before {
 	content:"("	
 }
 
-#citation .bibl::after {
+.citation .bibl::after {
 	content:")"	
 }
 
