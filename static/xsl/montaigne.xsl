@@ -53,8 +53,6 @@
  </span>
 </xsl:template>
 
-
-
 <xsl:template match="title">
   <span class="title">
     <xsl:apply-templates />
