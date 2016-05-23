@@ -53,6 +53,12 @@
  </span>
 </xsl:template>
 
+<xsl:template match="bibl[name(parent::*)='cit']">
+  <span class="bibl_cit">
+    <xsl:apply-templates />
+ </span>
+</xsl:template>
+
 <xsl:template match="title">
   <span class="title">
     <xsl:apply-templates />

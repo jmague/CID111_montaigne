@@ -54,11 +54,11 @@ div .bibl .author{
 	text-shadow: 1px 1px 1px #888;
 }
 
-.bibl:before {
+.bibl_cit:before {
 	content:"("	;
 }
 
-.bibl:after {
+.bibl_cit:after {
 	content:")"	;
 }
 
