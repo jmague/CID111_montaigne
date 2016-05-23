@@ -54,6 +54,10 @@ h1{
 	text-shadow: 1px 1px 1px #888;
 }
 
+.citation .bibl {
+	font-style: italic;
+}
+
 .citation .bibl::before {
 	content:"("	
 }
