@@ -59,11 +59,11 @@ div .bibl .author{
 }
 
 .citation .bibl::before {
-	content:"("	
+	content:"rtret"	
 }
 
 .citation .bibl::after {
-	content:")"	
+	content:"ljdfk"	
 }
 
 
