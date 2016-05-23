@@ -50,11 +50,11 @@ h1{
 	font-style: italic;
 }
 
-.p .bibl .author{
+p .bibl .author{
 	text-shadow: 1px 1px 1px #888;
 }
 
-.citation .bibl {
+/*.citation .bibl {
 	font-style: italic;
 }
 
@@ -64,7 +64,7 @@ h1{
 
 .citation .bibl::after {
 	content:")"	
-}
+}*/
 
 
 .wit_e1582{
