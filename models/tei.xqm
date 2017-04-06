@@ -149,7 +149,7 @@ declare function getPersonOccurrences($queryParams as map(*)) as map(*) {
     }
 let $here:=fn:trace("there")
 
-  let $content := for $text in fn:trace(synopsx.models.synopsx:getDb($queryParams)//tei:body//tei:persName[text()="Aeneas"])
+  let $content := for $text in fn:trace(synopsx.models.synopsx:getDb($queryParams)//tei:body)
       return
      map {
           'title':$text//tei:titleStmt/title/text(),
