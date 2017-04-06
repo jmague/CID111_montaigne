@@ -127,7 +127,7 @@ declare function getPersonsList($queryParams as map(*)) as map(*) {
    order by $person/text()
      return
      map {
-          'name':$person/text()
+          'name':$person/text(),
           'essai_id' : $person/ancestor::tei:TEI/@xml:id,
           'essai_title' : $person/ancestor::tei:titleStmt/tei:title/text()
          }
