@@ -127,7 +127,7 @@ declare function getPersonsList($queryParams as map(*)) as map(*) {
      return
      map {
           'name':fn:trace($person/tei:persName[1]/text()),
-          'id' : fn:trace()$person/@xml:id)
+          'id' : fn:trace($person/@xml:id)
          }
   return  map{
     'meta'    : $meta,
