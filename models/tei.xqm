@@ -178,6 +178,7 @@ declare function getPlacesList($queryParams as map(*)) as map(*) {
      return
      map {
           'name':fn:trace($place/tei:placeName[1]/text()),
+          'place':fn:trace($place),
           'id' : fn:trace($place/@xml:id)
          }
   return  map{
