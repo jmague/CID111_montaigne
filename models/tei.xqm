@@ -201,7 +201,7 @@ declare function getPlaceOccurrences($queryParams as map(*)) as map(*) {
     'title' : $name
     }
 
-  let $content := for $text in synopsx.models.synopsx:getDb($queryParams)//tei:body//tei:place  Name[@*:corresp=$id]/ancestor::tei:TEI
+  let $content := for $text in synopsx.models.synopsx:getDb($queryParams)//tei:body//tei:placeName[@*:corresp=$id]/ancestor::tei:TEI
       return
      map {
           'title': $text//tei:titleStmt/tei:title/text(),
