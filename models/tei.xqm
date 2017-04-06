@@ -124,10 +124,10 @@ declare function getPersonsList($queryParams as map(*)) as map(*) {
     'title' : 'Les Personnes'
     }
   let $content := for $person in fn:trace(synopsx.models.synopsx:getDb($queryParams)//tei:teiHeader//tei:listPerson/tei:person)
-   order by $person/tei:persName[0]/text()
+   order by $person/tei:persName[1]/text()
      return
      map {
-          'name':$person/tei:persName[0]/text(),
+          'name':$person/tei:persName[1]/text(),
           'id' : $person/@xml:id
          }
   return  map{
