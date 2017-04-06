@@ -152,7 +152,7 @@ let $here:=fn:trace("there")
   let $content := for $text in synopsx.models.synopsx:getDb($queryParams)//tei:body//tei:persName[@*:corresp="#Aeneas"]/ancestor::tei:TEI
       return
      map {
-          'title': fn:trace($text//tei:titleStmt/title/text()),
+          'title': fn:trace($text//tei:titleStmt/tei:title/text()),
           'id' : $text/@xml:id
          }
   return  map{
