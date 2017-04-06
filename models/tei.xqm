@@ -92,7 +92,6 @@ declare function getDivById($queryParams as map(*)) as map(*) {
  :)
 declare function getEditorsList($queryParams as map(*)) as map(*) {
   let $editors := synopsx.models.synopsx:getDb($queryParams)//tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:respStmt[tei:resp="Editeur"]/tei:persName
-  let $here:=fn:trace("there")
   let $meta := map{
     'title' : 'Editeurs'
     }
@@ -148,6 +147,7 @@ declare function getPersonOccurrences($queryParams as map(*)) as map(*) {
   let $meta := map{
     'title' : 'Les Essais'
     }
+let $here:=fn:trace("there")
 
   let $content := for $text in fn:trace(synopsx.models.synopsx:getDb($queryParams)//tei:body//tei:persName[text()="Aeneas"])
       return
