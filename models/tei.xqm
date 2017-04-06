@@ -145,7 +145,7 @@ declare function getPersonsList($queryParams as map(*)) as map(*) {
  :)
 declare function getPersonOccurrences($queryParams as map(*)) as map(*) {
   let $id:= fn:concat('#',$queryParams('id'))
-  let $name:= fn:trace(synopsx.models.synopsx:getDb($queryParams)//tei:TEI[@xml:id="index"]/tei:teiHeader//tei:listPerson/tei:person[@xml:id=id]/tei:persName[1]/text())
+  let $name:= fn:trace(synopsx.models.synopsx:getDb($queryParams)//tei:TEI[@xml:id="index"]/tei:teiHeader//tei:listPerson/tei:person[@xml:id=,$queryParams('id')]/tei:persName[1]/text())
   let $meta := map{
     'title' : $name
     }
