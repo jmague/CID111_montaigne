@@ -148,7 +148,7 @@ declare function getPersonOccurrences($queryParams as map(*)) as map(*) {
   let $meta := map{
     'title' : 'Les Essais'
     }
-  let $content := for $text in synopsx.models.synopsx:getDb($queryParams)//tei:body//tei:persName[@corresp="#Aeneas"]/ancestor::tei:TEI
+  let $content := for $text in synopsx.models.synopsx:getDb($queryParams)//tei:body//tei:persName[@tei:corresp="#Aeneas"]/ancestor::tei:TEI
       return
      map {
           'title':$text//tei:titleStmt/title/text(),
