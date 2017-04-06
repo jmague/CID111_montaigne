@@ -177,8 +177,8 @@ declare function getPlacesList($queryParams as map(*)) as map(*) {
    order by $place/tei:placeName[1]/text()
      return
      map {
-          'name':$place/tei:placeName[1]/text(),
-          'id' : $place/@xml:id
+          'name':fn:trace($place/tei:placeName[1]/text()),
+          'id' : fn:trace($place/@xml:id)
          }
   return  map{
     'meta'    : $meta,
@@ -201,7 +201,7 @@ declare function getPlaceOccurrences($queryParams as map(*)) as map(*) {
     'title' : $name
     }
 
-  let $content := for $text in synopsx.models.synopsx:getDb($queryParams)//tei:body//tei:placeName[@*:corresp=$id]/ancestor::tei:TEI
+  let $content := for $text in synopsx.models.synopsx:getDb($queryParams)//tei:body//tei:place  Name[@*:corresp=$id]/ancestor::tei:TEI
       return
      map {
           'title': $text//tei:titleStmt/tei:title/text(),
