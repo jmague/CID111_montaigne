@@ -105,6 +105,20 @@
 
  <!-- <xsl:template match="bibl"/> -->
 
+
+ <xsl:template match="placeName[@*:corresp]">
+	 <span class="placeName">
+		 <a href="lieu/{@*:corresp}">
+		 <xsl:apply-templates />
+		 <a>
+	</span>
+  </xsl:template>
+
+  <xsl:template match="/root/diagram[not(graph[1]/@color)]">
+   Graph[1] has not color
+  </xsl:template>
+ </xsl:stylesheet>
+
  <xsl:template match="placeName">
    <span class="placeName">
      <xsl:apply-templates />
