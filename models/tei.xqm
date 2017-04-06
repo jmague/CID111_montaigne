@@ -45,11 +45,11 @@ declare default function namespace 'montaigne.models.tei' ;
  : @rmq for testing with new htmlWrapping
  :)
 declare function getDivById($queryParams as map(*)) as map(*) {
- 
+
   let $meta := map{
     }
   let $content := map{
-    'tei' :  synopsx.models.synopsx:getDb($queryParams)//tei:TEI[@xml:id='montaigne']//tei:div[@xml:id=$queryParams('id')]    
+    'tei' :  synopsx.models.synopsx:getDb($queryParams)//tei:TEI[@xml:id='montaigne']//tei:div[@xml:id=$queryParams('id')]
   }
 
   return  fn:trace(map{
@@ -98,13 +98,39 @@ declare function getEditorsList($queryParams as map(*)) as map(*) {
     }
     let $content := for $editor in $editors
      order by $editor/tei:surname , $editor/tei:forename
-       return 
+       return
        map {
             'surname':$editor/tei:surname,
             'forename':$editor/tei:forename,
             'essai_id' : $editor/ancestor::tei:TEI/@xml:id,
             'essai_title' : $editor/ancestor::tei:titleStmt/tei:title/text()
-           } 
+           }
+  return  map{
+    'meta'    : $meta,
+    'content' : $content
+    }
+};
+
+
+
+(:~
+ : this function returns a sequence of map for meta and content
+ : !! the result structure has changed to allow sorting early in mapping
+ :
+ : @rmq for testing with new htmlWrapping
+ :)
+declare function getPersonsList($queryParams as map(*)) as map(*) {
+  let $meta := map{
+    'title' : 'Les Personnes'
+    }
+  let $content := for $person in fn:trace(synopsx.models.synopsx:getDb($queryParams)//tei:body//tei:persName)
+   order by $person/text()
+     return
+     map {
+          'name':$person/text()
+          'essai_id' : $person/ancestor::tei:TEI/@xml:id,
+          'essai_title' : $person/ancestor::tei:titleStmt/tei:title/text()
+         }
   return  map{
     'meta'    : $meta,
     'content' : $content
@@ -122,9 +148,9 @@ declare function getEssaisList($queryParams as map(*)) as map(*) {
   let $meta := map{
     'title' : 'Les Essais'
     }
-  let $content := for $essai in fn:trace(synopsx.models.synopsx:getDb($queryParams)/tei:TEI[fn:not(//tei:titleStmt/tei:author)])  
-   order by $essai//tei:titleStmt/tei:title     
-     return 
+  let $content := for $essai in fn:trace(synopsx.models.synopsx:getDb($queryParams)/tei:TEI[fn:not(//tei:titleStmt/tei:author)])
+   order by $essai//tei:titleStmt/tei:title
+     return
      map {
           'id': fn:data($essai/@xml:id),
           'title':$essai//tei:titleStmt/tei:title/text()
@@ -146,9 +172,9 @@ declare function getReportsList($queryParams as map(*)) as map(*) {
   let $meta := map{
     'title' : 'Rapports des étudiants'
     }
-  let $content := for $essai in synopsx.models.synopsx:getDb($queryParams)/tei:TEI[//tei:titleStmt/tei:author]  
+  let $content := for $essai in synopsx.models.synopsx:getDb($queryParams)/tei:TEI[//tei:titleStmt/tei:author]
    order by $essai//tei:titleStmt/tei:author
-     return 
+     return
      map {
           'id': fn:data($essai/@xml:id),
           'title':$essai//tei:titleStmt/tei:title/text(),
