@@ -120,9 +120,9 @@ declare function getEditorsList($queryParams as map(*)) as map(*) {
  :)
 declare function getPersonsList($queryParams as map(*)) as map(*) {
   let $meta := map{
-    'title' : 'Les Personnes'
+    'title' : 'Index des personnes'
     }
-  let $content := for $person in fn:trace(synopsx.models.synopsx:getDb($queryParams)//tei:teiHeader//tei:listPerson/tei:person)
+  let $content := for $person in fn:trace(synopsx.models.synopsx:getDb($queryParams)//tei:TEI[@xml:id="index"]/tei:teiHeader//tei:listPerson/tei:person)
    order by $person/tei:persName[1]/text()
      return
      map {
@@ -144,10 +144,11 @@ declare function getPersonsList($queryParams as map(*)) as map(*) {
  : @rmq for testing with new htmlWrapping
  :)
 declare function getPersonOccurrences($queryParams as map(*)) as map(*) {
+  let $id:= fn:concat('#',$queryParams('id'))
   let $meta := map{
-    'title' : 'Les Essais'
+    'title' : synopsx.models.synopsx:getDb($queryParams)//tei:TEI[@xml:id="index"]/tei:teiHeader//tei:listPerson/tei:person[@xml:id=id]/persName[1]/text()
     }
-let $id:= fn:concat('#',$queryParams('id'))
+
   let $content := for $text in synopsx.models.synopsx:getDb($queryParams)//tei:body//tei:persName[@*:corresp=$id]/ancestor::tei:TEI
       return
      map {
