@@ -129,7 +129,7 @@ declare function getPersonsList($queryParams as map(*)) as map(*) {
      map {
           'name':$person/text(),
           'essai_id' : $person/ancestor::tei:TEI/@xml:id,
-          'essai_title' : $person/ancestor::tei:TEI/tei:titleStmt/tei:title/text()
+          'essai_title' : $person/ancestor::tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title/text()
          }
   return  map{
     'meta'    : $meta,
