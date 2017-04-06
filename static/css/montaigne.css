@@ -90,7 +90,7 @@ div .bibl .author{
 .wit_e1588{
 	display: none;
 }
-.wit_e1595{	
+.wit_e1595{
 }
 
 div.citation{
@@ -100,9 +100,17 @@ div.citation{
 }
 
 span.citation{
-	font-style: italic;	
+	font-style: italic;
 }
 
 .textTitle {
+	font-weight: bold;
+}
+
+span.persName {
+	font-weight: bold;
+}
+
+span.placeName {
 	font-weight: bold;
 }
