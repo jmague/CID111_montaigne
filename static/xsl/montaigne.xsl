@@ -108,7 +108,7 @@
 
  <xsl:template match="placeName[@*:corresp]">
 	 <span class="placeName">
-		 <a href="/lieu/{@*:corresp}">
+		 <a href="/montaigne/lieu/{@*:corresp}">
 		 <xsl:apply-templates />
 	 </a>
 	</span>
@@ -117,11 +117,19 @@
 
  <xsl:template match="placeName[not(@*:corresp)]">
    <span class="placeName">
+		 <a href="/montaigne/personne/{@*:corresp}">
      <xsl:apply-templates />
+	 </a>
   </span>
   </xsl:template>
 
-	<xsl:template match="persName">
+	<xsl:template match="persName[@*:corresp]">
+		<span class="persName">
+			<xsl:apply-templates />
+	 </span>
+	 </xsl:template>
+
+	<xsl:template match="persName[not(@*:corresp)]">
 		<span class="persName">
 			<xsl:apply-templates />
 	 </span>
