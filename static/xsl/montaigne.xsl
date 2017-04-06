@@ -110,7 +110,7 @@
 	 <span class="placeName">
 		 <a href="lieu/{@*:corresp}">
 		 <xsl:apply-templates />
-		 <a>
+	 </a>
 	</span>
   </xsl:template>
 
