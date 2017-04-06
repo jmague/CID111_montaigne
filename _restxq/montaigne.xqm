@@ -152,7 +152,7 @@ declare
   %rest:produces('text/html')
   %output:method("html")
   %output:html-version("5.0")
-function personnes() {
+function persons() {
     let $queryParams := map {
     'project' : $montaigne.webapp:project,
     'model' : 'tei' ,
@@ -166,6 +166,32 @@ function personnes() {
  return synopsx.models.synopsx:htmlDisplay($queryParams, $outputParams)
 };
 
+
+(:~
+ : this resource function is the html representation of the corpus resource
+ :
+ : @return an html representation of the corpus resource with a bibliographical list
+ : the HTML serialization also shows a bibliographical list
+ :)
+declare
+  %restxq:path('/montaigne/personne/{$id}')
+  %rest:produces('text/html')
+  %output:method("html")
+  %output:html-version("5.0")
+function person($id) {
+    let $queryParams := map {
+    'project' : $montaigne.webapp:project,
+    'model' : 'tei' ,
+    'function' : 'getPersonOccurrences',
+    'id' : $id
+    }
+   let $outputParams := map {
+    'lang' : 'fr',
+    'layout' : 'home.xhtml',
+    'pattern' : 'inc_essaiTitleItem.xhtml'
+    }
+ return synopsx.models.synopsx:htmlDisplay($queryParams, $outputParams)
+};
 
 (:~
  : this resource function is the html representation of the corpus resource

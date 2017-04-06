@@ -137,6 +137,30 @@ declare function getPersonsList($queryParams as map(*)) as map(*) {
 };
 
 
+
+(:~
+ : this function returns a sequence of map for meta and content
+ : !! the result structure has changed to allow sorting early in mapping
+ :
+ : @rmq for testing with new htmlWrapping
+ :)
+declare function getPersonOccurrences($queryParams as map(*)) as map(*) {
+  let $meta := map{
+    'title' : 'Les Essais'
+    }
+  let $content := for $text in fn:trace(fn:distinct-values(synopsx.models.synopsx:getDb($queryParams)//tei:body//tei:persName[@xml:id=$queryParams('id')]ancestor::tei:TEI))
+      return
+     map {
+          'title':$text//tei:titleStmt/title/text(),
+          'id' : $text/@xml:id
+         }
+  return  map{
+    'meta'    : $meta,
+    'content' : $content
+    }
+};
+
+
 (:~
  : this function returns a sequence of map for meta and content
  : !! the result structure has changed to allow sorting early in mapping
