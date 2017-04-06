@@ -200,6 +200,60 @@ function person($id) {
  : the HTML serialization also shows a bibliographical list
  :)
 declare
+  %restxq:path('/montaigne/lieux')
+  %rest:produces('text/html')
+  %output:method("html")
+  %output:html-version("5.0")
+function places() {
+    let $queryParams := map {
+    'project' : $montaigne.webapp:project,
+    'model' : 'tei' ,
+    'function' : 'getPlacesList'
+    }
+   let $outputParams := map {
+    'lang' : 'fr',
+    'layout' : 'home.xhtml',
+    'pattern' : 'inc_placeItem.xhtml'
+    }
+ return synopsx.models.synopsx:htmlDisplay($queryParams, $outputParams)
+};
+
+
+(:~
+ : this resource function is the html representation of the corpus resource
+ :
+ : @return an html representation of the corpus resource with a bibliographical list
+ : the HTML serialization also shows a bibliographical list
+ :)
+declare
+  %restxq:path('/montaigne/lieu/{$id}')
+  %rest:produces('text/html')
+  %output:method("html")
+  %output:html-version("5.0")
+function place($id) {
+    let $queryParams := map {
+    'project' : $montaigne.webapp:project,
+    'model' : 'tei' ,
+    'function' : 'getPlaceOccurrences',
+    'id' : $id
+    }
+   let $outputParams := map {
+    'lang' : 'fr',
+    'layout' : 'home.xhtml',
+    'pattern' : 'inc_essaiTitleItem.xhtml'
+    }
+ return synopsx.models.synopsx:htmlDisplay($queryParams, $outputParams)
+};
+
+
+
+(:~
+ : this resource function is the html representation of the corpus resource
+ :
+ : @return an html representation of the corpus resource with a bibliographical list
+ : the HTML serialization also shows a bibliographical list
+ :)
+declare
   %restxq:path('/montaigne/rapports')
   %rest:produces('text/html')
   %output:method("html")

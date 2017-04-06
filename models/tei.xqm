@@ -169,6 +169,59 @@ declare function getPersonOccurrences($queryParams as map(*)) as map(*) {
  :
  : @rmq for testing with new htmlWrapping
  :)
+declare function getPlacesList($queryParams as map(*)) as map(*) {
+  let $meta := map{
+    'title' : 'Index des lieux'
+    }
+  let $content := for $place in fn:trace(synopsx.models.synopsx:getDb($queryParams)//tei:TEI[@xml:id="index"]/tei:teiHeader//tei:listPlace/tei:place)
+   order by $place/tei:placeName[1]/text()
+     return
+     map {
+          'name':$place/tei:placeName[1]/text(),
+          'id' : $place/@xml:id
+         }
+  return  map{
+    'meta'    : $meta,
+    'content' : $content
+    }
+};
+
+
+
+(:~
+ : this function returns a sequence of map for meta and content
+ : !! the result structure has changed to allow sorting early in mapping
+ :
+ : @rmq for testing with new htmlWrapping
+ :)
+declare function getPlaceOccurrences($queryParams as map(*)) as map(*) {
+  let $id:= fn:concat('#',$queryParams('id'))
+  let $name:= fn:trace(synopsx.models.synopsx:getDb($queryParams)//tei:TEI[@xml:id="index"]/tei:teiHeader//tei:listPlace/tei:place[@xml:id=$queryParams('id')]/tei:placeName[1]/text())
+  let $meta := map{
+    'title' : $name
+    }
+
+  let $content := for $text in synopsx.models.synopsx:getDb($queryParams)//tei:body//tei:placeName[@*:corresp=$id]/ancestor::tei:TEI
+      return
+     map {
+          'title': $text//tei:titleStmt/tei:title/text(),
+          'id' : $text/@xml:id
+         }
+  return  map{
+    'meta'    : $meta,
+    'content' : $content
+    }
+};
+
+
+
+
+(:~
+ : this function returns a sequence of map for meta and content
+ : !! the result structure has changed to allow sorting early in mapping
+ :
+ : @rmq for testing with new htmlWrapping
+ :)
 declare function getEssaisList($queryParams as map(*)) as map(*) {
   let $meta := map{
     'title' : 'Les Essais'
