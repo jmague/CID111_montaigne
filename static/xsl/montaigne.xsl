@@ -114,12 +114,8 @@
 	</span>
   </xsl:template>
 
-  <xsl:template match="/root/diagram[not(graph[1]/@color)]">
-   Graph[1] has not color
-  </xsl:template>
- </xsl:stylesheet>
 
- <xsl:template match="placeName">
+ <xsl:template match="placeName[not(@*:corresp)]">
    <span class="placeName">
      <xsl:apply-templates />
   </span>
