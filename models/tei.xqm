@@ -126,8 +126,8 @@ declare function getPersonsList($queryParams as map(*)) as map(*) {
    order by $person/tei:persName[1]/text()
      return
      map {
-          'name':$person/tei:persName[1]/text(),
-          'id' : $person/@xml:id
+          'name':fn:trace($person/tei:persName[1]/text()),
+          'id' : fn:trace()$person/@xml:id)
          }
   return  map{
     'meta'    : $meta,
