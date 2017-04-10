@@ -256,7 +256,7 @@ declare
   %rest:produces('text/html')
   %output:method("html")
   %output:html-version("5.0")
-function places() {
+function quotations() {
     let $queryParams := map {
     'project' : $montaigne.webapp:project,
     'model' : 'tei' ,
