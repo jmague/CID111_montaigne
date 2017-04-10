@@ -216,6 +216,27 @@ declare function getPlaceOccurrences($queryParams as map(*)) as map(*) {
 
 
 
+(:~
+ : this function returns a sequence of map for meta and content
+ : !! the result structure has changed to allow sorting early in mapping
+ :
+ : @rmq for testing with new htmlWrapping
+ :)
+declare function getQuotationList($queryParams as map(*)) as map(*) {
+  let $meta := map{
+    'title' : 'Liste des citations'
+    }
+  let $content := for $quotation in synopsx.models.synopsx:getDb($queryParams)//tei:text//tei:cit
+      return
+     map {
+          'quote':$quotation/tei:quote/text(),
+          'ref' : $quotation/tei:bibl/text()
+         }
+  return  map{
+    'meta'    : $meta,
+    'content' : $content
+    }
+};
 
 (:~
  : this function returns a sequence of map for meta and content

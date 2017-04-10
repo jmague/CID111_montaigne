@@ -245,7 +245,30 @@ function place($id) {
  return synopsx.models.synopsx:htmlDisplay($queryParams, $outputParams)
 };
 
-
+(:~
+ : this resource function is the html representation of the corpus resource
+ :
+ : @return an html representation of the corpus resource with a bibliographical list
+ : the HTML serialization also shows a bibliographical list
+ :)
+declare
+  %restxq:path('/montaigne/citations')
+  %rest:produces('text/html')
+  %output:method("html")
+  %output:html-version("5.0")
+function places() {
+    let $queryParams := map {
+    'project' : $montaigne.webapp:project,
+    'model' : 'tei' ,
+    'function' : 'getQuotationList'
+    }
+   let $outputParams := map {
+    'lang' : 'fr',
+    'layout' : 'home.xhtml',
+    'pattern' : 'inc_quotationItem.xhtml'
+    }
+ return synopsx.models.synopsx:htmlDisplay($queryParams, $outputParams)
+};
 
 (:~
  : this resource function is the html representation of the corpus resource
