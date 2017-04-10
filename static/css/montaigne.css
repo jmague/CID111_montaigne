@@ -103,6 +103,15 @@ span.citation{
 	font-style: italic;
 }
 
+div.quote{
+	font-style: italic;
+}
+
+div.reference{
+	text-align: right;
+}
+
+
 .textTitle {
 	font-weight: bold;
 }
