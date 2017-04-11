@@ -109,6 +109,7 @@ div.quote{
 
 div.reference{
 	text-align: right;
+	font-style: italic;
 }
 
 div.authorQuotation{
