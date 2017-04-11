@@ -227,10 +227,11 @@ declare function getQuotationList($queryParams as map(*)) as map(*) {
     'title' : 'Liste des citations'
     }
   let $content := for $quotation in synopsx.models.synopsx:getDb($queryParams)//tei:text//tei:cit
+    order by $quotation/tei:author/text()
       return
      map {
           'quote':$quotation/tei:quote/text(),
-          'ref' : $quotation/tei:bibl/fn:string(),
+          'ref' : $quotation/tei:bibl/fn:string (),
           'textId' : $quotation/ancestor::tei:TEI/@xml:id,
           'textTitle' : $quotation/ancestor::tei:TEI//tei:titleStmt/tei:title/text()
          }
