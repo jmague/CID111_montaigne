@@ -111,7 +111,10 @@ div.reference{
 	text-align: right;
 }
 
-
+div.author{
+	font-weight: bold;
+	font-variant : small-caps;
+}
 .textTitle {
 	font-weight: bold;
 }
