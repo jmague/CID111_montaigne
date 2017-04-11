@@ -232,6 +232,7 @@ declare function getQuotationList($queryParams as map(*)) as map(*) {
      map {
           'quote':$quotation/tei:quote/text(),
           'ref' : $quotation/tei:bibl/fn:string (),
+          'author' : $quotation/tei:author/text(),
           'textId' : $quotation/ancestor::tei:TEI/@xml:id,
           'textTitle' : $quotation/ancestor::tei:TEI//tei:titleStmt/tei:title/text()
          }
